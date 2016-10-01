@@ -30,11 +30,27 @@ void readFile(ifstream& input){
   while(getline(input, curLine)){
     //if the first character read in is a digit
     if(isdigit(curLine[0])){
-      //check to see if there's a space or not
+      //check to see if there's a space in the string
+      if(spaceCheck(curLine)){
+        //just read in the dimensions of the maze
+      } else{//prime number, call function
+
+      }
     }
     //if the first character read in is a letter in the alphabet
     else if(isalpha(curLine[0])){
       //call permutation function
     }
   }
+}
+
+//spaceCheck is a function that returns a boolean
+//and is passed a string. Returns true if there is a
+//space in the string, otherwise false
+bool spaceCheck(string line){
+  int len = line.length();
+  for(int i= 0; i < len; i++){
+    if(line[i] == ' ') return true;
+  }
+  return false;
 }

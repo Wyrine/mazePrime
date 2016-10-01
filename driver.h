@@ -17,3 +17,4 @@ using namespace std;
 //function prototypes
 void fileCheck(ifstream& input);
 void readFile(ifstream& input);
+bool spaceCheck(string line);
