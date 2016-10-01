@@ -21,3 +21,10 @@ void fileCheck(ifstream& input){
     input.open(fileName);
   }
 }
+
+//readFile is a function that has a void return
+//and an ifstream input file that is passed by reference as it's parameter
+//that reads the file per line
+void readFile(ifstream& input){
+  
+}

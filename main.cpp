@@ -15,4 +15,6 @@ int main(){
   cout << "Welcome to the recursive solution's program.\n";
   //calling fileCheck to see if the input file opened correctly
   fileCheck(input);
+  //calling readFile to read in data from the file into the appropriate storage
+  readFile(input);
 }
