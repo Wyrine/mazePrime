@@ -24,7 +24,17 @@ void fileCheck(ifstream& input){
 
 //readFile is a function that has a void return
 //and an ifstream input file that is passed by reference as it's parameter
-//that reads the file per line
+//that reads the file per line and figures out which function to call
 void readFile(ifstream& input){
-  
+  string curLine;
+  while(getline(input, curLine)){
+    //if the first character read in is a digit
+    if(isdigit(curLine[0])){
+      //check to see if there's a space or not
+    }
+    //if the first character read in is a letter in the alphabet
+    else if(isalpha(curLine[0])){
+      //call permutation function
+    }
+  }
 }

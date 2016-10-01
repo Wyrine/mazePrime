@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <cctype>
+#include <string>
 
 //defining the std namespace used
 using namespace std;
