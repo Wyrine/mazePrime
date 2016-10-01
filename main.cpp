@@ -3,9 +3,9 @@
 */
 
 //header files used for the program
-#include <iostream>
-#include <fstream>
+#include "driver.h"
 
+//the std namespace that will be used
 using namespace std;
 
 int main(){
@@ -13,5 +13,6 @@ int main(){
   ifstream input("ola3data.txt");
   //greeting the user
   cout << "Welcome to the recursive solution's program.\n";
-
+  //calling fileCheck to see if the input file opened correctly
+  fileCheck(input);
 }
