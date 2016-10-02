@@ -34,13 +34,14 @@ void readFile(ifstream& input){
       if(spaceCheck(curLine)){
         //just read in the dimensions of the maze
       } else{//prime number, call function
-
+          Prime prime(stoi(curLine));
       }
     }
     //if the first character read in is a letter in the alphabet
     else if(isalpha(curLine[0])){
       //call permutation function
     }
+    curLine.clear();
   }
 }
 

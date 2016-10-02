@@ -10,6 +10,7 @@
 #include <fstream>
 #include <cctype>
 #include <string>
+#include "prime.h"
 
 //defining the std namespace used
 using namespace std;
