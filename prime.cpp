@@ -26,7 +26,7 @@ void Prime::primeCheck(int n){
   //base case for the recursive function. If n is one or 0 then
   //the number is prime
   if (n==1 || n==0){
-    cout << checkPrime << " is a prime number!\n";
+    cout << checkPrime << " is a prime number.\n";
     return;
   }
   //if checkPrime is not evenly divisible by n, call

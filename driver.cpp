@@ -22,10 +22,30 @@ void fileCheck(ifstream& input){
   }
 }
 
+void readFile(ifstream& input){
+  string curLine;
+  while(getline(input, curLine)){
+    if(spaceCheck(curLine)){
+      //just read in dimensions of maze
+      break;
+    }
+    else if(isdigit(curLine[0])){
+      Prime prime(stoi(curLine));
+    }
+    else{
+      cout << "The permutations of " << curLine << " are:\n";
+      //call permutation function
+      int i = 1;
+      permuteString(curLine, 0, curLine.size()-1, i);
+    }
+    curLine.clear();
+  }
+}
+
 //readFile is a function that has a void return
 //and an ifstream input file that is passed by reference as it's parameter
 //that reads the file per line and figures out which function to call
-void readFile(ifstream& input){
+/*void readFile(ifstream& input){
   string curLine;
   while(getline(input, curLine)){
     //if the first character read in is a digit
@@ -33,16 +53,42 @@ void readFile(ifstream& input){
       //check to see if there's a space in the string
       if(spaceCheck(curLine)){
         //just read in the dimensions of the maze
-      } else{//prime number, call function
+      } else{//prime number check, create Prime class instance
           Prime prime(stoi(curLine));
       }
     }
     //if the first character read in is a letter in the alphabet
     else if(isalpha(curLine[0])){
+      cout << "The permutations of " << curLine << " are:\n";
       //call permutation function
     }
     curLine.clear();
   }
+}
+*/
+
+//
+void permuteString(string line, int i, int n, int &curSpot){
+  if (i == n){
+     cout << "\t" << curSpot << ". " <<  line << endl;
+     curSpot++;
+  }
+  else
+    for(int j = i; j<line.size(); j++){
+      swap(line[i], line[j]);
+      permuteString(line, i+1, n, curSpot);
+      swap(line[i], line[j]);
+    }
+}
+
+//swapChar takes in two characters and swaps them,
+//it has a void return type but it has two
+//characters passed by reference as the argument
+void swapChar(char &a, char &b){
+  char temp;
+  temp = a;
+  a = b;
+  b = temp;
 }
 
 //spaceCheck is a function that returns a boolean

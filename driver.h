@@ -19,3 +19,5 @@ using namespace std;
 void fileCheck(ifstream& input);
 void readFile(ifstream& input);
 bool spaceCheck(string line);
+void swapChar(char &a, char &b);
+void permuteString(string line, int i, int n, int& curSpot);
