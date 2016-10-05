@@ -124,15 +124,44 @@ void mazeRead(string curLine, ifstream& input){
     cout << maze[i] << endl;
   }
   if(recurseMaze(maze, startRow, startCol, endRow, endCol))
-    cout << "Maze solved Successfully" << endl;
+    cout << "\nMaze solved Successfully." << endl;
   else{
-    cout << "The maze has no solution." << endl;
+    cout << "\nThe maze has no solution." << endl;
   }
 }
 
 bool recurseMaze(vector<string> maze, int curRow, int curCol, int finalRow, int finalCol){
-
+  CURRENT = '*';
+  printMaze(maze);
+  if(curRow == finalRow && curCol == finalCol) return true;
+  if(LEFT == '.') {
+    if(recurseMaze(maze, curRow, curCol-1, finalRow, finalCol) == false)
+      LEFT = 'x';
+    else return true;
+  }
+  if(RIGHT == '.') {
+    if(recurseMaze(maze, curRow, curCol+1, finalRow, finalCol) == false)
+      RIGHT = 'x';
+    else return true;
+  }
+  if(DOWN == '.'){
+    if(recurseMaze(maze, curRow+1, curCol, finalRow, finalCol) == false)
+      DOWN = 'x';
+    else return true;
+  }
+  if(UP == '.'){
+    if(recurseMaze(maze, curRow-1, curCol, finalRow, finalCol) == false)
+      DOWN = 'x';
+    else return true;
+  }
   return false;
+}
+
+void printMaze(vector<string> maze){
+  cout << endl;
+  for(vector<string>::iterator it = maze.begin(); it != maze.end(); it++){
+    cout << *it << endl;
+  }
 }
 
 void tokenize(int& row, int& col, char* line){

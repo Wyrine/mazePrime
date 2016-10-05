@@ -16,7 +16,11 @@
 //defining the std namespace used
 using namespace std;
 
-const int MAX_LINE = 1000;
+#define CURRENT maze[curRow][curCol]
+#define LEFT maze[curRow][curCol-1]
+#define RIGHT maze[curRow][curCol+1]
+#define UP maze[curRow-1][curCol]
+#define DOWN maze[curRow+1][curCol]
 
 //function prototypes
 void fileCheck(ifstream& input);
@@ -27,3 +31,4 @@ void permuteString(string line, int i, int n, int& curSpot);
 void mazeRead(string curLine, ifstream& input);
 void tokenize(int& row, int& col, char* line = NULL);
 bool recurseMaze(vector<string> maze, int curRow, int curCol, int finalRow, int finalCol);
+void printMaze(vector<string> maze);
