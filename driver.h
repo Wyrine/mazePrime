@@ -16,6 +16,7 @@
 //defining the std namespace used
 using namespace std;
 
+//define statements to make the maze recursion a little more readable
 #define CURRENT maze[curRow][curCol]
 #define LEFT maze[curRow][curCol-1]
 #define RIGHT maze[curRow][curCol+1]
