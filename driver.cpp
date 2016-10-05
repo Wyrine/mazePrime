@@ -27,18 +27,26 @@ void readFile(ifstream& input){
   while(getline(input, curLine)){
     if(spaceCheck(curLine)){
       //just read in dimensions of maze
+      mazeRead(curLine, input);
       break;
     }
-    else if(isdigit(curLine[0])){
-      Prime prime(stoi(curLine));
-    }
-    else{
-      cout << "The permutations of " << curLine << " are:\n";
-      //call permutation function
-      int i = 1;
-      permuteString(curLine, 0, curLine.size()-1, i);
-    }
+    else {
+      int x = atoi(curLine.c_str());
+      for(int z = 1; z <= x; z++){
+        curLine.clear();
+        getline(input, curLine);
+        if(isdigit(curLine[0])){
+          Prime prime(stoi(curLine));
+        }
+        else{
+          cout << "The permutations of " << curLine << " are:\n";
+          //call permutation function
+          int i = 1;
+          permuteString(curLine, 0, curLine.size()-1, i);
+        }
+      }
     curLine.clear();
+    }
   }
 }
 
@@ -100,4 +108,34 @@ bool spaceCheck(string line){
     if(line[i] == ' ') return true;
   }
   return false;
+}
+
+void mazeRead(string curLine, ifstream& input){
+  int rows, cols, startRow, startCol, endRow, endCol;
+  tokenize(rows, cols, (char*)curLine.c_str());
+  vector<string> maze;
+  getline(input, curLine);
+  tokenize(startRow, startCol, (char*)curLine.c_str());
+  getline(input, curLine);
+  tokenize(endRow, endCol, (char*)curLine.c_str());
+  for (int i = 0; i < rows; i++){
+    if(!getline(input, curLine)) break;
+    maze.push_back(curLine);
+    cout << maze[i] << endl;
+  }
+  if(recurseMaze(maze, startRow, startCol, endRow, endCol))
+    cout << "Maze solved Successfully" << endl;
+  else{
+    cout << "The maze has no solution." << endl;
+  }
+}
+
+bool recurseMaze(vector<string> maze, int curRow, int curCol, int finalRow, int finalCol){
+
+  return false;
+}
+
+void tokenize(int& row, int& col, char* line){
+  row = atoi(strtok(line, " \n"));
+  col = atoi(strtok(NULL, " \n"));
 }
